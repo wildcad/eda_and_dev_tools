@@ -17,11 +17,9 @@ COPY app/ ./app/
 COPY abalone_regression_dashboard.yaml .
 COPY regression_explainer.joblib .
 
-RUN python dashboard.py
-
 # Экспортируем порт
 EXPOSE 8050
 
-# Запускаем приложение
+# Запуск через entrypoint и cmd
 ENTRYPOINT ["python"]
-CMD ["app.py"]
+CMD ["app/app.py"]
